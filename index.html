@@ -1,0 +1,1549 @@
+<!DOCTYPE html>
+<html lang="ckb" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="X-Content-Type-Options" content="nosniff" />
+<meta name="referrer" content="strict-origin-when-cross-origin" />
+<title>ماڵێک بۆ شاعیران — دیوانی شیعر</title>
+<link rel="icon" type="image/jpeg" href="./icon-180.jpg" />
+<link rel="apple-touch-icon" sizes="180x180" href="./icon-180.jpg" />
+<meta name="apple-mobile-web-app-title" content="شێروان شەیدا" />
+<meta name="mobile-web-app-capable" content="yes" />
+<meta name="theme-color" content="#140c07" />
+<style>
+  :root{
+    --room-bg:#070504; --page-bg:#efe2c6; --ink:#2b1b10; --ink-muted:#6b4c35;
+    --ember:#ff9d2e; --gold:#ffdfa6;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0; min-height:100vh; font-family:Tahoma,Arial,sans-serif; line-height:1.95;
+    color:#f3e6d0; background-color:var(--room-bg);
+    background-image:
+      radial-gradient(circle at 50% 15%, rgba(255,165,55,.20) 0%, rgba(160,80,15,.07) 32%, rgba(7,5,4,.98) 72%),
+      linear-gradient(180deg,#070504 0%,#120b07 50%,#1c1009 100%);
+    transition:background .6s ease;
+  }
+  body.candle-off{
+    background-image:
+      radial-gradient(circle at 50% 15%, rgba(90,110,140,.06) 0%, rgba(7,5,4,.99) 65%),
+      linear-gradient(180deg,#040303 0%,#090706 100%);
+  }
+  .room-scene{max-width:780px;margin:0 auto;padding:22px 16px 8px;display:flex;flex-direction:column;align-items:center}
+  .table-props{display:flex;align-items:flex-end;justify-content:center;gap:28px;margin-bottom:10px}
+  .book-stack{display:flex;flex-direction:column;align-items:center;opacity:.9}
+  .closed-book{height:13px;border-radius:3px;box-shadow:0 4px 10px rgba(0,0,0,.8)}
+  .b1{width:95px;background:linear-gradient(90deg,#4a1c12,#6e2a1b);border-bottom:3px solid #d8c6a3}
+  .b2{width:110px;background:linear-gradient(90deg,#1f3326,#2f4d39);border-bottom:3px solid #cbb68f}
+  .b3{width:120px;background:linear-gradient(90deg,#3b2414,#59371f);border-bottom:3px solid #bfa77e}
+  .candle-unit{display:flex;flex-direction:column;align-items:center;cursor:pointer;user-select:none;position:relative}
+  .halo{position:absolute;top:-45px;width:160px;height:160px;border-radius:50%;
+    background:radial-gradient(circle,rgba(255,175,60,.35) 0%,rgba(255,120,20,.08) 50%,transparent 72%);
+    pointer-events:none;animation:glow 3s infinite alternate ease-in-out;transition:opacity .4s}
+  body.candle-off .halo{opacity:0}
+  @keyframes glow{from{transform:scale(.94);opacity:.8}to{transform:scale(1.06);opacity:1}}
+  .flame{width:18px;height:34px;
+    background:radial-gradient(circle at 50% 75%,#fff8d6 15%,#ff9d2e 58%,#d94e00 100%);
+    border-radius:50% 50% 50% 50%/68% 68% 32% 32%;
+    box-shadow:0 0 16px #ffd180,0 0 34px rgba(255,152,0,.85),0 0 70px rgba(255,110,0,.45);
+    transform-origin:bottom center;animation:dance 2.1s infinite ease-in-out;transition:opacity .3s,transform .3s}
+  body.candle-off .flame{opacity:0;transform:scale(.1)}
+  @keyframes dance{0%,100%{transform:rotate(-2deg) scaleY(1)}25%{transform:rotate(3deg) scaleY(1.07)}50%{transform:rotate(-1.5deg) scaleY(.94)}75%{transform:rotate(2deg) scaleY(1.04)}}
+  .wick{width:3px;height:7px;background:#1c120c;margin-top:-1px}
+  .wax-body{width:34px;height:58px;border-radius:5px 5px 4px 4px;
+    background:linear-gradient(90deg,#9c7a50 0%,#f7e6c4 42%,#c9a273 100%);
+    box-shadow:inset 0 -8px 12px rgba(0,0,0,.35)}
+  .candle-holder{width:58px;height:11px;border-radius:10px;
+    background:linear-gradient(90deg,#4d3518,#b88946,#3d2912);box-shadow:0 6px 14px rgba(0,0,0,.85)}
+  .hint{font-size:12px;color:#b59b78;margin-top:6px;text-align:center}
+  .room-title{text-align:center;margin:8px 0 4px}
+  .room-title h1{margin:0;font-size:22px;color:var(--gold);text-shadow:0 2px 14px rgba(255,160,45,.35);word-break:break-word}
+  .room-title p{margin:6px 0 0;font-size:13.5px;color:#bda686}
+  .desk{max-width:760px;margin:14px auto 32px;padding:0 14px}
+  .open-book{
+    background:linear-gradient(90deg,#dfd0b0 0%,var(--page-bg) 8%,#f4ead2 48%,#d8c59e 50%,#f4ead2 52%,var(--page-bg) 92%,#dfd0b0 100%);
+    color:var(--ink);border-radius:10px;border:6px solid #4a2815;padding:22px 18px;margin-bottom:26px;position:relative;
+    box-shadow:0 18px 45px rgba(0,0,0,.88),0 0 38px rgba(255,165,55,.16),inset 0 0 28px rgba(110,70,30,.22)}
+  body.candle-off .open-book{filter:brightness(.42) contrast(.95)}
+  .book-header{display:flex;justify-content:space-between;align-items:center;gap:10px;
+    border-bottom:1px dashed rgba(90,55,25,.35);padding-bottom:10px;margin-bottom:14px;font-size:13px;color:var(--ink-muted)}
+  .poem-entry{padding:14px 10px;border-bottom:1px solid rgba(90,55,25,.18)}
+  .poem-entry:last-child{border-bottom:none}
+  .poem-entry.pinned{background:rgba(150,56,20,.05);border-radius:8px}
+  .poem-top{display:flex;justify-content:space-between;align-items:flex-start;gap:8px}
+  .poem-title-wrap{display:flex;align-items:center;flex-wrap:wrap;gap:6px;min-width:0}
+  .poem-title{margin:0 0 4px;font-size:20px;color:#5c240c;word-break:break-word}
+  .badge{font-size:12px;color:#7c2d12}
+  .poem-actions{display:inline-flex;flex-direction:column;align-items:flex-start;gap:5px;flex-shrink:0}
+  .icon-btn{width:22px;height:22px;margin:0;padding:0;border-radius:50%;background:transparent;
+    color:var(--ink-muted);border:none;display:inline-flex;align-items:center;justify-content:center;cursor:pointer}
+  .icon-btn:hover{background:rgba(150,56,20,.16);color:#5c240c}
+  .icon-btn svg{width:12px;height:12px;display:block}
+  .like-btn{width:auto;padding:0 4px;border-radius:6px;gap:4px;font-size:11.5px;color:var(--ink-muted);
+    background:transparent;border:none;display:inline-flex;align-items:center;cursor:pointer}
+  .like-btn:hover{background:rgba(139,30,20,.08);color:#7c2d12}
+  .like-btn.liked{color:#8b1e14;font-weight:bold;background:rgba(139,30,20,.1)}
+  .like-btn svg{width:11.5px;height:11.5px;display:block}
+  .poem-meta{font-size:13px;color:var(--ink-muted);margin-bottom:10px;display:flex;flex-wrap:wrap;gap:6px}
+  .poem-body{white-space:pre-line;word-break:break-word;overflow-wrap:anywhere;font-size:16.5px;color:#24150b;
+    padding-right:12px;border-right:3px solid #8c3b19}
+  .parchment{background:radial-gradient(circle at top,#f5ead1 0%,#e5d4b1 100%);color:var(--ink);
+    border-radius:22px;border:2px solid #7a5230;padding:20px 16px;
+    box-shadow:0 14px 35px rgba(0,0,0,.8),inset 0 0 24px rgba(120,80,35,.2)}
+  body.candle-off .parchment{filter:brightness(.45)}
+  .parchment h2{margin:0 0 12px;font-size:13.5px;color:#5c240c;border-bottom:1px solid rgba(92,36,12,.25);
+    padding-bottom:8px;text-align:center}
+  .notice{display:none;margin-bottom:12px;padding:10px 14px;border-radius:14px;
+    background:rgba(139,30,20,.12);border:1px solid rgba(139,30,20,.45);color:#7f1d1d;font-size:12.5px;font-weight:bold;text-align:center}
+  .notice.active{display:block}
+  .sysbar{display:none;position:fixed;top:0;right:0;left:0;z-index:11000;padding:9px 14px;text-align:center;
+    font-size:12.5px;font-weight:bold;background:#7f1d1d;color:#fff5f5}
+  .sysbar.active{display:block}
+  input,select,textarea{width:100%;padding:10px 16px;border:1px solid #b59b72;border-radius:999px;
+    font-family:inherit;font-size:15px;background:rgba(255,250,240,.78);color:#24150b;outline:none}
+  textarea{border-radius:24px;font-size:16px;line-height:1.9;min-height:180px;resize:vertical}
+  input:focus,select:focus,textarea:focus{border-color:#7c2d12;background:#fffdf8;box-shadow:0 0 0 3px rgba(124,45,18,.12)}
+  label{display:block;margin:12px 0 4px;font-size:14px;font-weight:bold;color:#3d2414}
+  .label-row{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:6px;margin-top:12px}
+  .label-row label{margin:0}
+  .preset-select{width:auto;max-width:230px;padding:4px 10px;font-size:11.5px;border-radius:999px;
+    background:rgba(107,36,12,.1);color:#5c240c;border:1px solid rgba(107,36,12,.28);cursor:pointer}
+  .primary-btn{width:100%;margin-top:16px;padding:12px;border:none;border-radius:999px;
+    background:linear-gradient(135deg,#6b240c 0%,#963814 100%);color:#fff6e5;font-size:16px;font-weight:bold;
+    font-family:inherit;cursor:pointer;box-shadow:0 4px 14px rgba(107,36,12,.35)}
+  .primary-btn:hover:not(:disabled){filter:brightness(1.08)}
+  .primary-btn:disabled{opacity:.6;cursor:not-allowed}
+  .countdown{display:none;margin-top:10px;padding:8px 12px;border-radius:14px;flex-direction:column;gap:6px;
+    background:rgba(107,36,12,.08);border:1px solid rgba(120,22,16,.26)}
+  .countdown.active{display:flex}
+  .countdown-top{display:flex;justify-content:space-between;align-items:center;gap:8px;font-size:11px;color:#6b240c;font-weight:bold}
+  .track{width:100%;height:5px;border-radius:999px;background:rgba(122,28,21,.14);overflow:hidden}
+  .fill{width:0%;height:100%;border-radius:999px;background:linear-gradient(90deg,#7a1410 0%,#b91c1c 100%);transition:width .25s linear}
+  .ghost-btn{width:auto;padding:3px 10px;border-radius:999px;background:rgba(139,30,20,.12);color:#8b1e14;
+    border:1px solid rgba(139,30,20,.35);font-size:10.5px;font-weight:bold;font-family:inherit;cursor:pointer}
+  .toolbar{display:inline-flex;align-items:center;gap:6px;flex-wrap:wrap}
+  .preview-btn{padding:4px 12px;font-size:12px;border-radius:999px;background:rgba(107,36,12,.12);
+    color:#5c240c;border:1px solid rgba(107,36,12,.28);font-family:inherit;cursor:pointer}
+  .preview-btn:hover{background:rgba(107,36,12,.22)}
+  .full-preview{display:none;margin-top:12px;padding:16px 14px;border-radius:18px;background:#f7eed9;
+    border:1px dashed rgba(92,36,12,.45);box-shadow:inset 0 0 18px rgba(120,80,35,.14)}
+  .full-preview.active{display:block}
+  .preview-head{font-size:12px;color:var(--ink-muted);border-bottom:1px dashed rgba(90,55,25,.25);
+    padding-bottom:6px;margin-bottom:10px}
+  .preview-text{white-space:pre-line;word-break:break-word;overflow-wrap:anywhere;font-size:16.5px;
+    line-height:1.95;color:#24150b;padding-right:12px;border-right:3px solid #8c3b19;min-height:40px}
+  .mood-section{margin-top:16px;padding:12px 6px 4px;border-top:1px dashed rgba(92,36,12,.25);
+    display:flex;align-items:center;justify-content:space-around;gap:14px}
+  .mood-btn{width:112px;height:112px;flex:0 0 112px;padding:6px;border-radius:50%;background:rgba(255,250,240,.78);
+    border:1.5px solid rgba(122,82,48,.42);color:#3d2414;font-family:inherit;cursor:pointer;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;text-align:center}
+  .mood-btn:hover:not(:disabled){background:rgba(255,252,246,.96);border-color:rgba(124,45,18,.65)}
+  .mood-btn.voted{background:rgba(124,45,18,.15);border-color:#7c2d12}
+  .mood-btn:disabled:not(.voted){opacity:.55;cursor:not-allowed}
+  .mood-emoji{font-size:23px;line-height:1.15}
+  .mood-count{font-size:12px;font-weight:bold;color:#24150b;background:rgba(107,36,12,.11);padding:0 8px;border-radius:999px}
+  .mood-sub{font-size:9px;color:var(--ink-muted);max-width:96px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .admin-panel{display:none;margin-top:16px;padding:16px 14px;border-radius:18px;
+    background:radial-gradient(circle at top,#f8efe0 0%,#e7d5b3 100%);border:2px solid #6b240c;color:#24150b;
+    box-shadow:0 12px 30px rgba(0,0,0,.75)}
+  .admin-panel.active{display:block}
+  .admin-head{display:flex;justify-content:space-between;align-items:center;gap:8px;
+    border-bottom:1px dashed rgba(92,36,12,.35);padding-bottom:8px;margin-bottom:10px}
+  .admin-head h3{margin:0;font-size:14px;color:#5c240c}
+  .admin-tabs{display:flex;gap:8px;margin-bottom:10px}
+  .tab-btn{flex:1;padding:6px 10px;border-radius:999px;border:1px solid rgba(107,36,12,.3);
+    background:rgba(107,36,12,.08);color:#5c240c;font-family:inherit;font-size:11.5px;font-weight:bold;cursor:pointer}
+  .tab-btn.active{background:#6b240c;color:#fff6e5}
+  .admin-item{padding:9px 6px;border-bottom:1px solid rgba(90,55,25,.18)}
+  .admin-item:last-child{border-bottom:none}
+  .admin-row{display:flex;justify-content:space-between;align-items:center;gap:10px}
+  .admin-info{min-width:0;flex:1;cursor:pointer;border-radius:8px;padding:2px 4px}
+  .admin-info:hover{background:rgba(107,36,12,.07)}
+  .admin-title{font-size:14px;font-weight:bold;color:#4a1c08;word-break:break-word}
+  .admin-sub{font-size:11.5px;color:var(--ink-muted)}
+  .admin-text{display:none;margin-top:8px;padding:8px 10px;border-radius:10px;background:rgba(255,250,240,.72);
+    border-right:3px solid #8c3b19;white-space:pre-line;word-break:break-word;font-size:14px;line-height:1.8}
+  .admin-text.open{display:block}
+  .small-btn{padding:4px 10px;border-radius:999px;border:none;background:linear-gradient(135deg,#6b240c 0%,#963814 100%);
+    color:#fff6e5;font-family:inherit;font-size:11px;font-weight:bold;cursor:pointer;flex-shrink:0}
+  .small-btn.danger{background:#7f1d1d}
+  .small-btn.dark{background:#4a1c08}
+  .small-btn.muted{background:rgba(107,36,12,.14);color:#5c240c;border:1px solid rgba(107,36,12,.3)}
+  footer{max-width:760px;margin:18px auto 0;padding:8px 16px 18px;border-top:1px solid rgba(255,223,166,.08);
+    display:flex;align-items:center;justify-content:space-between;gap:10px;font-size:11px;color:rgba(215,192,158,.72)}
+  .foot-btn{background:transparent;border:none;color:inherit;font-family:inherit;font-size:inherit;cursor:pointer;white-space:nowrap}
+  .foot-btn:hover{color:var(--gold)}
+  .clock-wrap{display:flex;flex-direction:column;align-items:center;gap:2px}
+  .clock-btn{direction:ltr;padding:3px 9px;border-radius:8px;border:1px solid rgba(255,198,92,.35);
+    background:linear-gradient(180deg,rgba(36,22,12,.92) 0%,rgba(16,10,6,.96) 100%);
+    color:#ffd882;font-family:"Courier New",Consolas,monospace;font-size:10.5px;font-weight:bold;cursor:pointer}
+  .dot{animation:blink 1s infinite step-end}
+  @keyframes blink{0%,100%{opacity:1}50%{opacity:.35}}
+  .online-badge{display:none;font-size:10.5px;font-weight:bold;color:#ffe29a}
+  .online-badge.visible{display:inline-block}
+  .tiktok{display:inline-flex;align-items:center;gap:4px;color:rgba(235,212,178,.78);text-decoration:none;white-space:nowrap}
+  .tiktok:hover{color:var(--gold)}
+  .tiktok svg{width:12px;height:12px}
+  .headphone{position:fixed;left:14px;top:42%;width:54px;height:54px;border-radius:50%;z-index:9999;
+    background:radial-gradient(circle at 30% 30%,#3a2212,#180d07);border:2px solid rgba(255,190,90,.55);
+    box-shadow:0 8px 22px rgba(0,0,0,.85);display:flex;align-items:center;justify-content:center;font-size:24px;
+    cursor:pointer;user-select:none}
+  .headphone.playing{border-color:#ffd180;box-shadow:0 0 20px rgba(255,165,50,.7)}
+  .toast{position:fixed;left:50%;bottom:92px;transform:translateX(-50%);z-index:10000;
+    background:rgba(24,15,9,.95);color:#ffe5b4;border:1px solid rgba(255,185,80,.4);
+    padding:8px 16px;border-radius:999px;font-size:13.5px;box-shadow:0 6px 20px rgba(0,0,0,.8);
+    opacity:0;pointer-events:none;transition:opacity .3s;text-align:center;max-width:90%}
+  .toast.show{opacity:1}
+  .notif-btn{display:none;position:fixed;top:14px;right:14px;z-index:10060;width:48px;height:48px;border-radius:50%;
+    align-items:center;justify-content:center;cursor:pointer;user-select:none;color:#ffd882;
+    background:radial-gradient(circle at 30% 30%,#3a2212,#180d07);border:2px solid rgba(255,190,90,.55);
+    box-shadow:0 8px 22px rgba(0,0,0,.85)}
+  .notif-btn.active{display:flex}
+  .notif-btn svg{width:22px;height:22px}
+  .notif-badge{display:none;position:absolute;top:-4px;left:-4px;min-width:20px;height:20px;padding:0 5px;
+    border-radius:999px;background:#c0392b;color:#fff;font-size:11.5px;font-weight:bold;font-family:inherit;
+    align-items:center;justify-content:center;border:2px solid #180d07}
+  .notif-badge.show{display:flex}
+  .notif-panel{display:none;position:fixed;top:70px;right:14px;z-index:10059;width:min(340px,92vw);max-height:64vh;
+    overflow:auto;background:#241911;border:1px solid rgba(255,223,166,.18);border-radius:18px;
+    box-shadow:0 18px 46px rgba(0,0,0,.9);color:#f3e6d0}
+  .notif-panel.show{display:block}
+  .notif-head{display:flex;align-items:center;gap:8px;padding:12px 14px;position:sticky;top:0;background:#241911;
+    border-bottom:1px solid rgba(255,223,166,.12)}
+  .notif-head h3{margin:0;font-size:15px;flex:1;color:#f7ebd7}
+  .notif-item{display:flex;gap:9px;padding:11px 14px;border-bottom:1px solid rgba(255,223,166,.07);font-size:13px;line-height:1.6}
+  .notif-item .n-ico{font-size:16px;line-height:1.4;flex-shrink:0}
+  .notif-item .n-time{display:block;font-size:10.5px;color:#a99b86}
+  .cry-overlay{position:fixed;inset:0;z-index:10020;display:none;align-items:center;justify-content:center;
+    background:rgba(10,6,4,.55);pointer-events:none}
+  .cry-overlay.show{display:flex}
+  .cry-face{font-size:min(46vw,230px);line-height:1;filter:drop-shadow(0 12px 34px rgba(0,0,0,.7));
+    animation:cryPulse 1s ease-in-out infinite}
+  @keyframes cryPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.09)}}
+  .welcome{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%) scale(.94);z-index:10001;
+    padding:14px 28px;border-radius:999px;border:1.5px solid rgba(255,204,112,.65);
+    background:linear-gradient(135deg,rgba(42,23,12,.97) 0%,rgba(22,12,7,.99) 100%);
+    color:var(--gold);font-size:16px;font-weight:bold;max-width:92vw;overflow:hidden;text-overflow:ellipsis;
+    white-space:nowrap;opacity:0;pointer-events:none;cursor:pointer;transition:opacity .35s,transform .35s;
+    box-shadow:0 14px 36px rgba(0,0,0,.9),0 0 28px rgba(255,165,55,.35)}
+  .welcome.show{opacity:1;transform:translate(-50%,-50%) scale(1);pointer-events:auto}
+  .auth-overlay{position:fixed;inset:0;z-index:10050;background:rgba(15,11,8,.72);display:none;
+    align-items:center;justify-content:center;padding:18px}
+  .auth-overlay.active{display:flex}
+  .auth-card{width:100%;max-width:390px;background:#241911;border:1px solid rgba(255,223,166,.14);
+    border-radius:20px;padding:26px 22px 22px;text-align:center;color:#f3e6d0;box-shadow:0 20px 50px rgba(0,0,0,.85)}
+  .auth-card h3{margin:0 0 8px;font-size:20px;color:#f7ebd7}
+  .auth-card p{margin:0 0 18px;font-size:13px;color:#cbbba4}
+  .auth-input{text-align:center;letter-spacing:3px;font-size:18px;padding:12px 16px;border-radius:12px;
+    border:1px solid #4a3728;background:#332419;color:#fff6e5;margin-bottom:16px}
+  .auth-input.error{border-color:#ef4444;box-shadow:0 0 0 3px rgba(239,68,68,.28)}
+  .auth-error{display:none;margin:-8px 0 14px;padding:8px 12px;border-radius:10px;
+    background:rgba(220,38,38,.16);border:1px solid rgba(248,113,113,.55);color:#fca5a5;font-size:13px;font-weight:bold}
+  .auth-error.active{display:block}
+  .auth-actions{display:flex;gap:12px}
+  .auth-actions button{flex:1;padding:11px 14px;border-radius:12px;font-family:inherit;font-size:14.5px;font-weight:bold;cursor:pointer}
+  .auth-ok{border:none;background:#c98642;color:#1f140c}
+  .auth-cancel{border:1px solid #574130;background:#241911;color:#e6d6be}
+  .empty{text-align:center;color:var(--ink-muted);padding:20px}
+</style>
+</head>
+<body>
+
+<div id="sysBar" class="sysbar" role="alert"></div>
+
+<div id="welcomeBanner" class="welcome" role="status" aria-live="polite" title="کلیک بکە بۆ داخستن"></div>
+
+<div class="room-scene">
+  <div class="table-props">
+    <div class="candle-unit" id="candleToggle" title="کلیک بکە بۆ داگیرساندن یان کوژاندنەوەی مۆمەکە">
+      <div class="halo"></div>
+      <div class="flame"></div>
+      <div class="wick"></div>
+      <div class="wax-body"></div>
+      <div class="candle-holder"></div>
+    </div>
+    <div class="book-stack" aria-hidden="true">
+      <div class="closed-book b1"></div>
+      <div class="closed-book b2"></div>
+      <div class="closed-book b3"></div>
+    </div>
+  </div>
+
+  <div class="hint" id="candleStatus">دەست لە مۆمەکە بدە بۆ کوژاندنەوە یان هەڵکردنی</div>
+
+  <div class="room-title">
+    <h1>مــاڵــێک بۆ شــاعــیران</h1>
+    <p>لەبەر ڕووناکیی مۆم، لاپەڕەکانی دیوانی شیعر هەڵبدەرەوە</p>
+  </div>
+</div>
+
+<div class="desk">
+
+  <div class="open-book" aria-label="کتێبی کراوەی دیوانی شیعر">
+    <div class="book-header">
+      <span>دیوانی شیعری کوردی</span>
+    </div>
+    <div id="poemsList"><div class="empty">بارکردن…</div></div>
+  </div>
+
+  <div class="parchment">
+    <h2>لەسەر ئەم پەڕەیە شیعرێک بنووسە و بیخەرە ناو کتێبەکە</h2>
+    <div id="blockedNotice" class="notice" role="alert">
+      🚫 بەهۆی نووسینی ناوەڕۆکی نەشیاو، ئەم ئامێرە بلۆک کراوە و ناتوانێت شیعر بڵاو بکاتەوە.
+    </div>
+    <form id="poemForm" novalidate>
+      <label for="poet">ناوی شاعیر</label>
+      <input type="text" id="poet" maxlength="100" placeholder="ناوی شاعیر بنووسە..." required />
+
+      <label for="title">ناونیشانی شیعر</label>
+      <input type="text" id="title" maxlength="140" placeholder="ناونیشانی شیعرەکە..." required />
+
+      <label for="category">پۆلێن</label>
+      <select id="category">
+        <option value="دڵداری">دڵداری</option>
+        <option value="نیشتمانی">نیشتمانی</option>
+        <option value="فەلسەفی">فەلسەفی</option>
+        <option value="کۆمەڵایەتی">کۆمەڵایەتی</option>
+      </select>
+
+      <div class="label-row">
+        <label for="poemText">دەقی شیعر</label>
+        <span class="toolbar">
+          <select id="presetPoemSelect" class="preset-select" title="شیعرێکی ئامادە">
+            <option value="">شیعرێکی ئامادە هەڵبژێرە...</option>
+          </select>
+          <button type="button" id="togglePreviewBtn" class="preview-btn">بینینی تەواوی پەڕە</button>
+        </span>
+      </div>
+      <textarea id="poemText" maxlength="8000" placeholder="دێڕەکانی شیعر لێرە بنووسە..." required></textarea>
+
+      <div id="fullPreview" class="full-preview" aria-live="polite">
+        <div class="preview-head">پێشبینینی ئەوەی نووسیوەتە:</div>
+        <div id="previewText" class="preview-text"></div>
+      </div>
+
+      <button type="submit" id="submitPoemBtn" class="primary-btn">تۆمارکردن لە ناو کتێبەکەدا</button>
+
+      <div id="countdown" class="countdown" aria-live="polite">
+        <div class="countdown-top">
+          <span id="countdownText">دوای ٣٠ چرکە تۆمار دەکرێت</span>
+          <button type="button" id="regretBtn" class="ghost-btn">پەشیمانبوونەوە</button>
+        </div>
+        <div class="track"><div id="fillBar" class="fill"></div></div>
+      </div>
+    </form>
+
+    <div class="mood-section" aria-label="هەڵبژاردنی باری دەروونی">
+      <button type="button" id="sadMoodBtn" class="mood-btn" title="دڵتەنگ">
+        <span class="mood-emoji">🥺</span>
+        <span id="sadMoodCount" class="mood-count">0</span>
+        <span id="sadMoodSub" class="mood-sub">دڵتەنگ</span>
+      </button>
+      <button type="button" id="happyMoodBtn" class="mood-btn" title="دڵخۆش">
+        <span class="mood-emoji">😄</span>
+        <span id="happyMoodCount" class="mood-count">0</span>
+        <span id="happyMoodSub" class="mood-sub">دڵخۆش</span>
+      </button>
+    </div>
+  </div>
+
+  <div id="adminPanel" class="admin-panel" aria-live="polite">
+    <div class="admin-head">
+      <h3>بەڕێوەبردنی سایت</h3>
+      <button type="button" id="closeAdminBtn" class="small-btn muted">داخستن</button>
+    </div>
+    <div class="admin-tabs">
+      <button type="button" id="tabPoems" class="tab-btn active">شیعرەکان</button>
+      <button type="button" id="tabBlocked" class="tab-btn">بلۆککراوەکان</button>
+    </div>
+    <div id="adminPoemsList"></div>
+    <div id="adminBlockedList" style="display:none"></div>
+  </div>
+
+  <footer>
+    <button type="button" id="footerAdminBtn" class="foot-btn" title="چوونەژوورەوەی بەڕێوەبەر">
+      بەڕێوەبەر: <strong>شێروان شەیدا</strong>
+    </button>
+
+    <div class="clock-wrap">
+      <button type="button" id="clockBtn" class="clock-btn" aria-label="کاتژمێر">
+        <span id="clockH">00</span><span class="dot">:</span><span id="clockM">00</span><span class="dot">:</span><span id="clockS">00</span>
+      </button>
+      <span id="onlineBadge" class="online-badge">1</span>
+    </div>
+
+    <a class="tiktok" href="https://www.tiktok.com/@zami_ashq" target="_blank" rel="noopener noreferrer" title="تیکتۆک: زامی عەشق">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.2 8.2 0 0 0 4.79 1.52V6.76a4.85 4.85 0 0 1-1.27-.07z"/></svg>
+      <span>زامی عەشق</span>
+    </a>
+  </footer>
+</div>
+
+<div id="headphoneBtn" class="headphone" title="کلیک بکە بۆ گۆرانی" aria-label="گۆرانی">🎧</div>
+<div id="toast" class="toast"></div>
+<div id="notifBtn" class="notif-btn" role="button" tabindex="0" title="ئاگادارییەکان" aria-label="ئاگادارییەکان">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 8a6 6 0 1 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+  <span id="notifBadge" class="notif-badge">0</span>
+</div>
+<div id="notifPanel" class="notif-panel" aria-live="polite">
+  <div class="notif-head">
+    <h3>ئاگادارییەکان</h3>
+    <button type="button" id="notifClear" class="small-btn muted">پاککردنەوە</button>
+    <button type="button" id="notifClose" class="small-btn muted">داخستن</button>
+  </div>
+  <div id="notifList"></div>
+</div>
+<div id="cryOverlay" class="cry-overlay" aria-hidden="true"><span class="cry-face">😭</span></div>
+<audio id="bgMusic" src="./music.mp3" loop preload="none"></audio>
+
+<div id="authModal" class="auth-overlay" role="dialog" aria-modal="true" aria-labelledby="authTitle">
+  <div class="auth-card">
+    <h3 id="authTitle">بەشی بەڕێوەبەر</h3>
+    <p>تکایە کۆدی تایبەت بنووسە بۆ چوونەژوورەوە</p>
+    <input type="password" id="authInput" class="auth-input" placeholder="••••" autocomplete="current-password" />
+    <div id="authError" class="auth-error" role="alert">کۆد هەڵەیە</div>
+    <div class="auth-actions">
+      <button type="button" id="authOk" class="auth-ok">چوونەژوورەوە</button>
+      <button type="button" id="authCancel" class="auth-cancel">پاشگەزبوونەوە</button>
+    </div>
+  </div>
+</div>
+
+<script>
+(function () {
+  "use strict";
+
+  var API_BASE = "https://ncfslltzahejqwkerqqj.supabase.co/rest/v1";
+  var API_KEY = "sb_publishable_M8kXFsw43iOkfn0AFxCf2A_A658Dmnm";
+  var HEADERS = {
+    apikey: API_KEY,
+    Authorization: "Bearer " + API_KEY,
+    "Content-Type": "application/json"
+  };
+
+  var DEVICE_KEY = "book_candle_device_v1";
+  var ADMIN_KEY = "book_candle_admin_code";
+  var ANCHOR_ID = "poem_zami_ashq_anchor";
+  var NOTIF_SEEN_KEY = "book_candle_notif_seen_v1";
+  var NOTIF_LOG_KEY = "book_candle_notif_log_v1";
+  var CATEGORIES = ["دڵداری", "نیشتمانی", "فەلسەفی", "کۆمەڵایەتی"];
+  var WAIT_SECONDS = 30;
+
+  var $ = function (id) { return document.getElementById(id); };
+
+  /* ---------- storage (never throws) ---------- */
+  var memoryStore = {};
+  function storeGet(key) {
+    try { return window.localStorage.getItem(key); }
+    catch (e) { return memoryStore[key] || null; }
+  }
+  function storeSet(key, value) {
+    try { window.localStorage.setItem(key, value); }
+    catch (e) { memoryStore[key] = value; }
+  }
+  var sessionMemory = {};
+  function sessionGet(key) {
+    try { return window.sessionStorage.getItem(key); }
+    catch (e) { return sessionMemory[key] || null; }
+  }
+  function sessionSet(key, value) {
+    try { window.sessionStorage.setItem(key, value); }
+    catch (e) { sessionMemory[key] = value; }
+  }
+  function sessionRemove(key) {
+    try { window.sessionStorage.removeItem(key); }
+    catch (e) { delete sessionMemory[key]; }
+  }
+
+  var deviceId = (function () {
+    var id = storeGet(DEVICE_KEY);
+    if (!id) {
+      id = "v_" + Math.random().toString(36).slice(2, 10) + "_" + Date.now().toString(36);
+      storeSet(DEVICE_KEY, id);
+    }
+    return id;
+  })();
+
+  var sessionId = "tab_" + Math.random().toString(36).slice(2, 12) + "_" + Date.now().toString(36);
+
+  /* ---------- helpers ---------- */
+  function escapeHtml(str) {
+    return String(str == null ? "" : str)
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;")
+      .replace(/'/g, "&#39;");
+  }
+  function formatNumber(n) {
+    return Math.max(0, Number(n) || 0).toLocaleString("en-US");
+  }
+  var toastTimer = null;
+  function toast(msg) {
+    var el = $("toast");
+    if (!el) return;
+    el.textContent = msg;
+    el.classList.add("show");
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function () { el.classList.remove("show"); }, 2800);
+  }
+  function systemError(msg) {
+    var bar = $("sysBar");
+    if (!bar) return;
+    bar.textContent = msg;
+    bar.classList.add("active");
+  }
+  function systemErrorClear() {
+    var bar = $("sysBar");
+    if (bar) bar.classList.remove("active");
+  }
+
+  function friendlyError(err) {
+    var raw = (err && err.message) ? String(err.message) : "هەڵەی نەزانراو";
+    if (raw.indexOf("failed to fetch") !== -1 || raw.indexOf("NetworkError") !== -1) {
+      return "پەیوەندی بە ئینتەرنێت نییە";
+    }
+    if (raw.indexOf("blocked") !== -1) return "ئەم ئامێرە بلۆک کراوە";
+    if (raw.indexOf("rate_limited") !== -1 || raw.indexOf("rate-limited") !== -1) return "زۆر خێرایە — کەمێک چاوەڕێ بکە";
+    if (raw.indexOf("too-long") !== -1) return "دەقەکە زۆر درێژە";
+    if (raw.indexOf("empty-fields") !== -1) return "تکایە هەموو خانەکان پڕ بکەرەوە";
+    if (raw.indexOf("cooldown") !== -1) return "تەنها یەکجار لە ٢٤ کاتژمێردا دەتوانیت دەنگ بدەیت";
+    if (raw.indexOf("locked") !== -1) return "٣ جار کۆدی هەڵەت نووسیوە — بۆ ١ کاتژمێر چوونەژوورەوە داخراوە";
+    if (raw.indexOf("unauthorized") !== -1) return "کۆد هەڵەیە";
+    if (raw.indexOf("PGRST202") !== -1 || raw.indexOf("Could not find the function") !== -1) {
+      return "داتابەیس ئامادە نییە — فایلی SQL جێبەجێ بکە";
+    }
+    return raw;
+  }
+
+  function request(path, options) {
+    var opts = options || {};
+    return fetch(API_BASE + "/" + path, {
+      method: opts.method || "GET",
+      headers: HEADERS,
+      body: opts.body
+    }).then(function (res) {
+      return res.text().then(function (text) {
+        var data = null;
+        if (text) {
+          try { data = JSON.parse(text); } catch (e) { data = null; }
+        }
+        if (!res.ok) {
+          var msg = (data && (data.message || data.hint || data.details)) || ("HTTP " + res.status);
+          var err = new Error(msg);
+          err.status = res.status;
+          throw err;
+        }
+        return data;
+      });
+    });
+  }
+
+  function rpc(name, args) {
+    return request("rpc/" + name, { method: "POST", body: JSON.stringify(args || {}) });
+  }
+
+  /* ---------- state ---------- */
+  var poems = [];
+  var adminCode = sessionGet(ADMIN_KEY) || "";
+  var blockedIds = [];
+  var moodState = { sad: 0, happy: 0, my_choice: null, cooldown_seconds: 0 };
+  var countdownTimer = null;
+  var countdownProgress = null;
+  var countdownEndsAt = 0;
+  var pendingDraft = null;
+
+  /* ---------- presets (clean, no duplicates) ---------- */
+  var PRESETS = [
+    { label: "زامی عەشق — دوام مە کە", poet: "شێروان شەیدا", title: "زامی عەشق", category: "دڵداری", text: "دوام مە کە وە منیش وە ك تۆ وونم" },
+    { label: "نالی — لە بێدەنگیی شەودا", poet: "نالی", title: "شەوی دڵداری", category: "دڵداری", text: "لە بێدەنگیی شەودا وشەکان وەک ئەستێرە دەدرەوشێنەوە\nلە هەر دێڕێکدا ڕۆحێک پشوو دەدات و دەژی." },
+    { label: "مەحوی — پەڕەی دیوان", poet: "مەحوی", title: "پەڕەی دیوان", category: "فەلسەفی", text: "بە دەنگی با لەسەر لێواری چاوەڕوانیدا دەوەستم\nهیوا هەرگیز نامرێت ئەگەر دڵێک باوەڕی پێی هەبێت." },
+    { label: "گۆران — ڕازی مۆم", poet: "گۆران", title: "ڕازی مۆم", category: "کۆمەڵایەتی", text: "لە نێوان دوو لێدانی دڵدا دونیایەک خولیا حەشار دراوە\nتا دوا هەناسە وەفادار دەمێنێتەوە بۆ ڕاستی." },
+    { label: "شێرکۆ بێکەس — دڵی شکاو", poet: "شێرکۆ بێکەس", title: "دڵی شکاو", category: "نیشتمانی", text: "کاتێک مەوداکان درێژ دەبنەوە، ناوت لە ڕۆحمدا گەورەتر دەبێت\nهەر وشەیەک پردێکە لە نێوان دوو دڵدا." },
+    { label: "عەبدوڵڵا پەشێو — هاواری بێدەنگی", poet: "عەبدوڵڵا پەشێو", title: "هاواری بێدەنگی", category: "کۆمەڵایەتی", text: "لەسەر پەڕەی کاغەزێکی زەردبوو، ڕازی دڵم دەنووسمەوە\nتۆ هەمیشە لەو دیو هەموو وشەکانەوە ئامادەیت." },
+    { label: "حاجی قادری کۆیی — یادگاری باران", poet: "حاجی قادری کۆیی", title: "یادگاری باران", category: "نیشتمانی", text: "بۆنی باران لە کۆڵانەکانی یادەوەریمەوە دێتەوە\nئەم دیوانە شاهیدی دڵێکە کە هەرگیز لە تۆ ماندوو نەبووە." },
+    { label: "وەفایی — سۆزی کۆن", poet: "وەفایی", title: "سۆزی کۆن", category: "کۆمەڵایەتی", text: "چاوەکانت وەک ئاسمانی پڕ ئەستێرە ڕێگای شەوم ڕۆشن دەکەن\nئەوەی لە ڕۆحەوە بێت، هەمیشە لە یادەوەرییەکاندا دەمێنێت." },
+    { label: "سالم — مانگی تەنیایی", poet: "سالم", title: "مانگی تەنیایی", category: "دڵداری", text: "لە بێدەنگیی ئێواراندا سێبەری خۆشەویستی درێژتر دەبێت\nعەشق بە بێدەنگی گەورە دەبێت و بە ڕاستگۆیی دەژی." },
+    { label: "هێمن — ڕێگای ئەوین", poet: "هێمن", title: "ڕێگای ئەوین", category: "دڵداری", text: "لە کەناری دەریای بێکۆتایی خەیاڵدا بەدوای تۆدا دەگەڕێم\nلە هەر دێڕێکدا ڕۆحێک پشوو دەدات و دەژی." },
+    { label: "هەژار — دەریای یاد", poet: "هەژار", title: "دەریای یاد", category: "کۆمەڵایەتی", text: "ئەو ساتەی پێدەکەنیت، زستانیش دەبێتە بەهار لە دڵمدا\nجوانی هەمیشە لە سادەییدا خۆی حەشار دەدات." },
+    { label: "قانع — نەغمەی شەو", poet: "قانع", title: "نەغمەی شەو", category: "کۆمەڵایەتی", text: "لە نێو ئەم هەموو قەرەباڵغییەدا تەنها دەنگی تۆ دەناسمەوە\nهیوا هەرگیز نامرێت ئەگەر دڵێک باوەڕی پێی هەبێت." },
+    { label: "دڵدار — خۆرئاوای غەم", poet: "دڵدار", title: "خۆرئاوای غەم", category: "نیشتمانی", text: "شەو درەنگە و هێشتا چاوەکانم لەسەر دەرگای هیوان\nتا دوا هەناسە وەفادار دەمێنێتەوە بۆ ڕاستی." },
+    { label: "بێکەس — گوڵی بەهار", poet: "بێکەس", title: "گوڵی بەهار", category: "نیشتمانی", text: "لەسەر لێواری ڕووبارێک کە هەرگیز ناوەستێت لە ڕۆیشتن\nهەر وشەیەک پردێکە لە نێوان دوو دڵدا." },
+    { label: "تاهیر بەگی جاف — باڵی خەیاڵ", poet: "تاهیر بەگی جاف", title: "باڵی خەیاڵ", category: "کۆمەڵایەتی", text: "بە ڕووناکیی مانگێک کە بەسەر کێوەکانی کوردستاندا دەکشێت\nتۆ هەمیشە لەو دیو هەموو وشەکانەوە ئامادەیت." },
+    { label: "مەولەوی — ئەستێرەی شەو", poet: "مەولەوی", title: "ئەستێرەی شەو", category: "فەلسەفی", text: "هەر وشەیەک پردێکە لە نێوان ڕۆحی من و دڵی تۆدا\nئەم دیوانە شاهیدی دڵێکە کە هەرگیز لە تۆ ماندوو نەبووە." },
+    { label: "ناری — تەمەن و تۆ", poet: "ناری", title: "تەمەن و تۆ", category: "نیشتمانی", text: "کاتێک مۆم دەسووتێت بۆ ئەوەی پەڕەکانی دیوان ببینرێن\nئەوەی لە ڕۆحەوە بێت، هەمیشە لە یادەوەرییەکاندا دەمێنێت." },
+    { label: "ئەحمەد موختار جاف — تیشکی بەیانی", poet: "ئەحمەد موختار جاف", title: "تیشکی بەیانی", category: "نیشتمانی", text: "لە قووڵایی بێدەنگیدا هاوارێکی بێدەنگ هەیە\nعەشق بە بێدەنگی گەورە دەبێت و بە ڕاستگۆیی دەژی." },
+    { label: "پیرەمێرد — شنەبای سەحەر", poet: "پیرەمێرد", title: "شنەبای سەحەر", category: "کۆمەڵایەتی", text: "دڵم وەک باخچەیەکە تەنها بە بارانی سۆزی تۆ سەوز دەبێت\nلە هەر چرکەیەکدا یادت وەک شنەبا بە دڵمدا تێدەپەڕێت." }
+  ];
+
+  /* ---------- render ---------- */
+  function likeCount(p) { return Array.isArray(p.liked_by) ? p.liked_by.length : 0; }
+  function likedByMe(p) { return Array.isArray(p.liked_by) && p.liked_by.indexOf(deviceId) !== -1; }
+  function isPinned(p) { return Boolean(p.is_pinned) || p.id === ANCHOR_ID; }
+
+  function sortPoems(list) {
+    return list.slice().sort(function (a, b) {
+      if (a.id === ANCHOR_ID) return -1;
+      if (b.id === ANCHOR_ID) return 1;
+      if (isPinned(a) !== isPinned(b)) return isPinned(a) ? -1 : 1;
+      return String(b.created_at || "").localeCompare(String(a.created_at || ""));
+    });
+  }
+
+  function formatDate(value) {
+    if (!value) return "ئێستا";
+    var d = new Date(value);
+    if (isNaN(d.getTime())) return "ئێستا";
+    try {
+      return d.toLocaleString("ku", { dateStyle: "short", timeStyle: "short" });
+    } catch (e) {
+      return d.toLocaleString();
+    }
+  }
+
+  function renderPoems() {
+    var listEl = $("poemsList");
+    if (!listEl) return;
+    var ordered = sortPoems(poems);
+
+    if (!ordered.length) {
+      listEl.innerHTML = '<div class="empty">هێشتا هیچ شیعرێک تۆمار نەکراوە.</div>';
+      return;
+    }
+
+    listEl.innerHTML = ordered.map(function (p) {
+      var mine = likedByMe(p);
+      var pinned = isPinned(p);
+      return '' +
+        '<article class="poem-entry' + (pinned ? " pinned" : "") + '" data-id="' + escapeHtml(p.id) + '">' +
+          '<div class="poem-top">' +
+            '<div class="poem-title-wrap">' +
+              '<h3 class="poem-title">' + escapeHtml(p.title) + '</h3>' +
+              (pinned ? '<span class="badge" title="پین کراوە">📌</span>' : "") +
+            '</div>' +
+            '<div class="poem-actions">' +
+              '<button type="button" class="like-btn' + (mine ? " liked" : "") + '" data-like="' + escapeHtml(p.id) + '" title="لایک">' +
+                '<svg viewBox="0 0 24 24" fill="' + (mine ? "currentColor" : "none") + '" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>' +
+                '<span>' + formatNumber(likeCount(p)) + '</span>' +
+              '</button>' +
+              '<button type="button" class="icon-btn" data-copy="' + escapeHtml(p.id) + '" title="کۆپی">' +
+                '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>' +
+              '</button>' +
+              (p.id === ANCHOR_ID || !adminCode ? "" :
+                '<button type="button" class="icon-btn" data-delete="' + escapeHtml(p.id) + '" title="سڕینەوە">' +
+                  '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/><path d="M10 11v6"/><path d="M14 11v6"/></svg>' +
+                '</button>') +
+            '</div>' +
+          '</div>' +
+          '<div class="poem-meta">' +
+            '<span>شاعیر: <strong>' + escapeHtml(p.poet) + '</strong></span><span>•</span>' +
+            '<span>پۆلێن: ' + escapeHtml(p.category || "دڵداری") + '</span><span>•</span>' +
+            '<span>' + escapeHtml(formatDate(p.created_at)) + '</span>' +
+          '</div>' +
+          '<div class="poem-body">' + escapeHtml(p.text) + '</div>' +
+        '</article>';
+    }).join("");
+  }
+
+  /* ---------- data ---------- */
+  function loadPoems() {
+    return request("posts?select=*&order=created_at.desc")
+      .then(function (rows) {
+        poems = Array.isArray(rows) ? rows : [];
+        systemErrorClear();
+        renderPoems();
+        refreshNotifications();
+      });
+  }
+
+  function loadWelcome() {
+    return request("site_settings?id=eq.welcome_banner&select=value")
+      .then(function (rows) {
+        var text = (rows && rows[0] && rows[0].value) ? rows[0].value : "خۆشحاڵم بە هاتنت";
+        showWelcome(text);
+      })
+      .catch(function () { showWelcome("خۆشحاڵم بە هاتنت"); });
+  }
+
+  function showWelcome(text) {
+    var banner = $("welcomeBanner");
+    if (!banner) return;
+    if (sessionGet("welcome_shown") === "1") return;
+    sessionSet("welcome_shown", "1");
+    banner.textContent = text;
+    banner.classList.add("show");
+    var hide = function () {
+      banner.classList.remove("show");
+      setTimeout(function () { banner.style.display = "none"; }, 350);
+    };
+    banner.addEventListener("click", hide, { once: true });
+    setTimeout(hide, 2600);
+  }
+
+  /* ---------- likes ---------- */
+  function syncPreview() {
+    var out = $("previewText");
+    var ta = $("poemText");
+    if (!out) return;
+    var value = ta && ta.value ? ta.value.trim() : "";
+    out.textContent = value || "هیچ دەقێک نەنووسراوە…";
+  }
+
+  var likesInFlight = {};
+
+  function toggleLike(id) {
+    if (likesInFlight[id]) return;
+    likesInFlight[id] = true;
+    rpc("toggle_like", { p_poem_id: id, p_device: deviceId })
+      .then(function () { return loadPoems(); })
+      .catch(function (err) { toast(friendlyError(err)); })
+      .then(function () { delete likesInFlight[id]; });
+  }
+
+  /* ---------- copy ---------- */
+  function copyPoem(id) {
+    var p = null;
+    for (var i = 0; i < poems.length; i++) if (poems[i].id === id) p = poems[i];
+    if (!p) return;
+    var text = p.title + "\nشاعیر: " + p.poet + "\n\n" + p.text;
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text)
+        .then(function () { toast("دەقی شیعرەکە کۆپی کرا"); })
+        .catch(function () { toast("کۆپی نەکرا"); });
+    } else {
+      toast("ئەم وێبگەڕە پشتگیری کۆپی ناکات");
+    }
+  }
+
+  /* ---------- publish (30s countdown) ---------- */
+  function startCountdown(draft) {
+    pendingDraft = draft;
+    var total = WAIT_SECONDS * 1000;
+    countdownEndsAt = Date.now() + total;
+    var bar = $("countdown");
+    var fill = $("fillBar");
+    if (bar) bar.classList.add("active");
+    if (fill) fill.style.width = "0%";
+    var submit = $("submitPoemBtn");
+    if (submit) submit.disabled = true;
+
+    countdownProgress = setInterval(function () {
+      var left = Math.max(0, countdownEndsAt - Date.now());
+      var pct = Math.min(100, Math.max(0, ((total - left) / total) * 100));
+      if (fill) fill.style.width = pct.toFixed(1) + "%";
+      var label = $("countdownText");
+      if (label) label.textContent = "دوای " + Math.ceil(left / 1000) + " چرکە تۆمار دەکرێت";
+    }, 200);
+
+    countdownTimer = setTimeout(function () { finishPublish(); }, total);
+  }
+
+  function clearCountdown() {
+    clearTimeout(countdownTimer);
+    clearInterval(countdownProgress);
+    countdownTimer = null;
+    countdownProgress = null;
+    pendingDraft = null;
+    var bar = $("countdown");
+    if (bar) bar.classList.remove("active");
+    var fill = $("fillBar");
+    if (fill) fill.style.width = "0%";
+    var submit = $("submitPoemBtn");
+    if (submit) submit.disabled = isBlocked();
+  }
+
+  function finishPublish() {
+    var draft = pendingDraft;
+    clearCountdown();
+    if (!draft) return;
+    var submit = $("submitPoemBtn");
+    if (submit) submit.disabled = true;
+    rpc("add_post", {
+      p_poet: draft.poet,
+      p_title: draft.title,
+      p_category: draft.category,
+      p_text: draft.text,
+      p_device: deviceId
+    }).then(function () {
+      var form = $("poemForm");
+      if (form) form.reset();
+      toast("شیعرەکە تۆمار کرا");
+      return loadPoems();
+    }).catch(function (err) {
+      toast(friendlyError(err));
+    }).then(function () {
+      if (submit) submit.disabled = isBlocked();
+    });
+  }
+
+  /* ---------- blocked ---------- */
+  function isBlocked() { return blockedIds.indexOf(deviceId) !== -1; }
+
+  function updateBlockedUi() {
+    var blocked = isBlocked();
+    var notice = $("blockedNotice");
+    if (notice) notice.classList.toggle("active", blocked);
+    var submit = $("submitPoemBtn");
+    if (submit && !countdownTimer) submit.disabled = blocked;
+  }
+
+  function loadBlockedState() {
+    /* ئەم خشتەیە تەنها بۆ بەڕێوەبەرە؛ سەردانکەر ناتوانێت بیخوێنێتەوە.
+       بلۆککردن لە سێرڤەر جێبەجێ دەکرێت لە کاتی تۆمارکردن. */
+    blockedIds = [];
+    updateBlockedUi();
+  }
+
+  /* ---------- mood ---------- */
+  function renderMood() {
+    var sadBtn = $("sadMoodBtn");
+    var happyBtn = $("happyMoodBtn");
+    if (!sadBtn || !happyBtn) return;
+    var sadCount = $("sadMoodCount");
+    var happyCount = $("happyMoodCount");
+    var sadSub = $("sadMoodSub");
+    var happySub = $("happyMoodSub");
+
+    if (sadCount) sadCount.textContent = formatNumber(moodState.sad);
+    if (happyCount) happyCount.textContent = formatNumber(moodState.happy);
+    sadBtn.classList.remove("voted");
+    happyBtn.classList.remove("voted");
+    sadBtn.disabled = false;
+    happyBtn.disabled = false;
+    if (sadSub) sadSub.textContent = "دڵتەنگ";
+    if (happySub) happySub.textContent = "دڵخۆش";
+
+    if (moodState.cooldown_seconds > 0 && moodState.my_choice) {
+      var mins = Math.max(1, Math.ceil(moodState.cooldown_seconds / 60));
+      var hrs = Math.floor(mins / 60);
+      var rem = mins % 60;
+      var label = hrs > 0 ? ("دوای " + hrs + " کاتژمێر" + (rem ? " و " + rem + " خولەک" : "")) : ("دوای " + mins + " خولەک");
+      sadBtn.disabled = true;
+      happyBtn.disabled = true;
+      if (moodState.my_choice === "sad") {
+        sadBtn.classList.add("voted");
+        if (sadSub) sadSub.textContent = label;
+      } else {
+        happyBtn.classList.add("voted");
+        if (happySub) happySub.textContent = label;
+      }
+    }
+  }
+
+  function loadMood() {
+    return request("mood_polls?id=eq.global_mood&select=sad_count,happy_count")
+      .then(function (rows) {
+        var row = (rows && rows[0]) || {};
+        moodState.sad = Number(row.sad_count) || 0;
+        moodState.happy = Number(row.happy_count) || 0;
+      })
+      .catch(function () {})
+      .then(function () { return rpc("get_mood", { p_device: deviceId }); })
+      .then(function (data) {
+        if (data && typeof data === "object") {
+          moodState.sad = Number(data.sad) || 0;
+          moodState.happy = Number(data.happy) || 0;
+          moodState.my_choice = data.my_choice || null;
+          moodState.cooldown_seconds = Number(data.cooldown_seconds) || 0;
+        }
+      })
+      .catch(function () {})
+      .then(renderMood);
+  }
+
+  var cryTimer = null;
+  function showCryFace() {
+    var el = $("cryOverlay");
+    if (!el) return;
+    el.classList.add("show");
+    clearTimeout(cryTimer);
+    cryTimer = setTimeout(function () { el.classList.remove("show"); }, 3000);
+  }
+
+  function voteMood(choice) {
+    if (choice === "sad") showCryFace();
+    if (moodState.cooldown_seconds > 0) {
+      toast("تەنها یەکجار لە ٢٤ کاتژمێردا دەتوانیت دەنگ بدەیت");
+      return;
+    }
+    $("sadMoodBtn").disabled = true;
+    $("happyMoodBtn").disabled = true;
+    rpc("vote_mood", { p_choice: choice, p_device: deviceId })
+      .then(function (data) {
+        if (data && typeof data === "object") {
+          moodState.sad = Number(data.sad) || 0;
+          moodState.happy = Number(data.happy) || 0;
+          moodState.my_choice = data.my_choice || choice;
+          moodState.cooldown_seconds = Number(data.cooldown_seconds) || 0;
+        }
+        toast(choice === "sad" ? "هەڵبژاردنی 🥺 تۆمار کرا" : "هەڵبژاردنی 😄 تۆمار کرا");
+      })
+      .catch(function (err) { toast(friendlyError(err)); })
+      .then(renderMood);
+  }
+
+  /* ---------- presence ---------- */
+  var onlineShown = false;
+  function touchPresence(show) {
+    rpc("touch_presence", { p_session: sessionId, p_device: deviceId })
+      .then(function (count) {
+        var badge = $("onlineBadge");
+        if (!badge) return;
+        badge.textContent = formatNumber(count);
+        if (show) onlineShown = true;
+        if (onlineShown) badge.classList.add("visible");
+      })
+      .catch(function () {});
+  }
+
+  /* ---------- admin ---------- */
+  function openAuth() {
+    var modal = $("authModal");
+    var input = $("authInput");
+    var error = $("authError");
+    if (!modal) return;
+    if (input) { input.value = ""; input.disabled = false; }
+    var okBtn = $("authOk");
+    if (okBtn) { okBtn.disabled = false; okBtn.textContent = "چوونەژوورەوە"; }
+    if (error) { error.textContent = ""; error.classList.remove("active"); }
+    modal.classList.add("active");
+    setTimeout(function () { if (input) input.focus(); }, 60);
+  }
+
+  function closeAuth() {
+    var modal = $("authModal");
+    if (modal) modal.classList.remove("active");
+  }
+
+  function authError(message) {
+    var error = $("authError");
+    var input = $("authInput");
+    if (error) {
+      error.textContent = message || "کۆد هەڵەیە";
+      error.classList.add("active");
+    }
+    if (input) {
+      input.classList.add("error");
+      input.value = "";
+      input.focus();
+      setTimeout(function () { input.classList.remove("error"); }, 700);
+    }
+  }
+
+  function submitAuth() {
+    var input = $("authInput");
+    if (!input) return;
+    var code = input.value.trim();
+    if (!code) { authError("تکایە کۆدەکە بنووسە"); return; }
+    rpc("admin_login", { p_code: code, p_device: deviceId })
+      .then(function (ok) {
+        if (ok === true) {
+          adminCode = code;
+          sessionSet(ADMIN_KEY, code);
+          closeAuth();
+          renderPoems();
+          resetNotificationState();
+          refreshNotifications();
+          openAdminPanel();
+        } else {
+          authError("کۆد هەڵەیە");
+        }
+      })
+      .catch(function (err) {
+        var message = friendlyError(err);
+        authError(message);
+        var raw = String((err && err.message) || "");
+        if (raw.indexOf("locked") !== -1) {
+          var input = $("authInput");
+          var okBtn = $("authOk");
+          if (input) { input.disabled = true; input.value = ""; }
+          if (okBtn) { okBtn.disabled = true; okBtn.textContent = "داخراوە — ١ کاتژمێر"; }
+          var box = $("authError");
+          if (box) {
+            box.textContent = "٣ جار کۆدی هەڵەت نووسیوە — چوونەژوورەوە بۆ ١ کاتژمێر داخراوە";
+            box.classList.add("active");
+          }
+        }
+      });
+  }
+
+  function openAdminPanel() {
+    var panel = $("adminPanel");
+    if (!panel) return;
+    panel.classList.add("active");
+    renderAdminPoems();
+    renderAdminBlocked();
+    panel.scrollIntoView({ behavior: "smooth", block: "nearest" });
+  }
+
+  function requireAdmin() {
+    if (adminCode) { openAdminPanel(); return; }
+    openAuth();
+  }
+
+  function renderAdminPoems() {
+    var el = $("adminPoemsList");
+    if (!el) return;
+    var list = sortPoems(poems);
+    if (!list.length) {
+      el.innerHTML = '<div class="empty">هیچ شیعرێک نییە.</div>';
+      return;
+    }
+    el.innerHTML = list.map(function (p) {
+      var pinned = isPinned(p);
+      return '' +
+        '<div class="admin-item">' +
+          '<div class="admin-row">' +
+            '<div class="admin-info" data-info="' + escapeHtml(p.id) + '" title="کلیک بکە بۆ بینینی دەق">' +
+              '<div class="admin-title">' + escapeHtml(p.title) + (pinned ? " 📌" : "") + '</div>' +
+              '<div class="admin-sub">' + escapeHtml(p.poet) + ' • ' + escapeHtml(p.category || "") + ' • ' + escapeHtml(formatDate(p.created_at)) + '</div>' +
+            '</div>' +
+            '<div style="display:flex;gap:6px;align-items:center;flex-shrink:0">' +
+              (p.id === ANCHOR_ID ? "" :
+                '<button type="button" class="small-btn" data-pin="' + escapeHtml(p.id) + '" data-pinned="' + (pinned ? "1" : "0") + '">' + (pinned ? "پین لادان" : "پین کردن") + '</button>' +
+                '<button type="button" class="small-btn danger" data-admin-delete="' + escapeHtml(p.id) + '">سڕینەوە</button>') +
+              (p.author_visitor_id ?
+                '<button type="button" class="small-btn dark" data-block="' + escapeHtml(p.author_visitor_id) + '">بلۆک</button>' : "") +
+            '</div>' +
+          '</div>' +
+          '<div class="admin-text" data-text="' + escapeHtml(p.id) + '">' + escapeHtml(p.text) + '</div>' +
+        '</div>';
+    }).join("");
+  }
+
+  function renderAdminBlocked() {
+    var el = $("adminBlockedList");
+    if (!el || !adminCode) return;
+    rpc("admin_list_blocked", { p_code: adminCode, p_device: deviceId })
+      .then(function (rows) {
+        var list = Array.isArray(rows) ? rows : [];
+        if (!list.length) {
+          el.innerHTML = '<div class="empty">هیچ ئامێرێک بلۆک نەکراوە.</div>';
+          return;
+        }
+        el.innerHTML = list.map(function (row) {
+          return '' +
+            '<div class="admin-item">' +
+              '<div class="admin-row">' +
+                '<div class="admin-info"><div class="admin-title" style="font-size:12px">' + escapeHtml(row.id) + '</div>' +
+                '<div class="admin-sub">' + escapeHtml(row.reason || "") + ' • ' + escapeHtml(formatDate(row.created_at)) + '</div></div>' +
+                '<button type="button" class="small-btn muted" data-unblock="' + escapeHtml(row.id) + '">لابردنی بلۆک</button>' +
+              '</div>' +
+            '</div>';
+      }).join("");
+      })
+      .catch(function (err) {
+        el.innerHTML = '<div class="empty">' + escapeHtml(friendlyError(err)) + '</div>';
+      });
+  }
+
+  function adminDelete(id) {
+    if (!adminCode) { openAuth(); return; }
+    if (!window.confirm("دڵنیایت لە سڕینەوەی ئەم شیعرە؟")) return;
+    rpc("admin_delete_post", { p_code: adminCode, p_device: deviceId, p_id: id })
+      .then(function () { toast("شیعرەکە سڕایەوە"); pushNotification("🗑", "شیعرێک سڕایەوە"); return loadPoems(); })
+      .then(renderAdminPoems)
+      .catch(function (err) { toast(friendlyError(err)); });
+  }
+
+  function adminPin(id, pinned) {
+    if (!adminCode) { openAuth(); return; }
+    rpc("admin_set_pin", { p_code: adminCode, p_device: deviceId, p_id: id, p_pinned: pinned })
+      .then(function () { toast(pinned ? "پین کرا" : "پین لادرا"); pushNotification("📌", pinned ? "شیعرێک پین کرا" : "پینی شیعرێک لادرا"); return loadPoems(); })
+      .then(renderAdminPoems)
+      .catch(function (err) { toast(friendlyError(err)); });
+  }
+
+  function adminBlock(device) {
+    if (!adminCode) { openAuth(); return; }
+    if (!window.confirm("ئەم ئامێرە بلۆک بکرێت؟")) return;
+    rpc("admin_block_device", { p_code: adminCode, p_device: deviceId, p_target: device, p_reason: "blocked by admin" })
+      .then(function () { toast("ئامێرەکە بلۆک کرا"); pushNotification("🚫", "ئامێرێک بلۆک کرا"); renderAdminBlocked(); })
+      .catch(function (err) { toast(friendlyError(err)); });
+  }
+
+  function adminUnblock(device) {
+    rpc("admin_unblock_device", { p_code: adminCode, p_device: deviceId, p_target: device })
+      .then(function () { toast("بلۆک لادرا"); pushNotification("✅", "بلۆکی ئامێرێک لادرا"); renderAdminBlocked(); })
+      .catch(function (err) { toast(friendlyError(err)); });
+  }
+
+  /* ---------- clock ---------- */
+  function tickClock() {
+    var now = new Date();
+    var h = $("clockH"), m = $("clockM"), s = $("clockS");
+    if (h) h.textContent = String(now.getHours()).padStart(2, "0");
+    if (m) m.textContent = String(now.getMinutes()).padStart(2, "0");
+    if (s) s.textContent = String(now.getSeconds()).padStart(2, "0");
+  }
+
+  /* ---------- music ---------- */
+  var musicBusy = false;
+  function refreshMusic() {
+    var btn = $("headphoneBtn");
+    var audio = $("bgMusic");
+    if (!btn || !audio) return;
+    btn.classList.toggle("playing", !audio.paused && !audio.ended);
+  }
+  function toggleMusic() {
+    var audio = $("bgMusic");
+    if (!audio || musicBusy) return;
+    musicBusy = true;
+    if (!audio.paused && !audio.ended) {
+      audio.pause();
+      refreshMusic();
+      toast("مۆسیقا ڕاگیرا");
+      musicBusy = false;
+      return;
+    }
+    audio.play()
+      .then(function () { refreshMusic(); toast("مۆسیقا دەستی پێ کرد"); })
+      .catch(function () { toast("فایلی music.mp3 نەدۆزرایەوە"); })
+      .then(function () { musicBusy = false; });
+  }
+
+  /* ---------- wiring ---------- */
+  function bind() {
+    var form = $("poemForm");
+    if (form) {
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        if (countdownTimer) return;
+        if (isBlocked()) { toast("ئەم ئامێرە بلۆک کراوە"); return; }
+        var poet = ($("poet") ? $("poet").value : "").trim();
+        var title = ($("title") ? $("title").value : "").trim();
+        var category = $("category") ? $("category").value : "دڵداری";
+        var text = ($("poemText") ? $("poemText").value : "").trim();
+        if (!poet || !title || !text) { toast("تکایە هەموو خانەکان پڕ بکەرەوە"); return; }
+        if (CATEGORIES.indexOf(category) === -1) category = "دڵداری";
+        startCountdown({ poet: poet, title: title, category: category, text: text });
+      });
+    }
+
+    var preset = $("presetPoemSelect");
+    if (preset) {
+      preset.addEventListener("change", function () {
+        var item = PRESETS[Number(preset.value)];
+        if (!item) return;
+        if ($("poet")) $("poet").value = item.poet;
+        if ($("title")) $("title").value = item.title;
+        if ($("category")) $("category").value = item.category;
+        if ($("poemText")) $("poemText").value = item.text;
+        var box = $("fullPreview");
+        if (box && box.classList.contains("active")) syncPreview();
+      });
+    }
+
+    var previewBtn = $("togglePreviewBtn");
+    var previewBox = $("fullPreview");
+    if (previewBtn && previewBox) {
+      previewBtn.addEventListener("click", function () {
+        var active = previewBox.classList.toggle("active");
+        previewBtn.textContent = active ? "شاردنەوەی پێشبینین" : "بینینی تەواوی پەڕە";
+        if (active) syncPreview();
+      });
+    }
+    var poemTextEl = $("poemText");
+    if (poemTextEl) {
+      poemTextEl.addEventListener("input", function () {
+        if (previewBox && previewBox.classList.contains("active")) syncPreview();
+      });
+    }
+
+    var regret = $("regretBtn");
+    if (regret) regret.addEventListener("click", function () { clearCountdown(); toast("تۆمارکردن هەڵوەشایەوە"); });
+
+    var list = $("poemsList");
+    if (list) {
+      list.addEventListener("click", function (e) {
+        var t = e.target;
+        var likeBtn = t.closest("[data-like]");
+        if (likeBtn) { toggleLike(likeBtn.getAttribute("data-like")); return; }
+        var copyBtn = t.closest("[data-copy]");
+        if (copyBtn) { copyPoem(copyBtn.getAttribute("data-copy")); return; }
+        var delBtn = t.closest("[data-delete]");
+        if (delBtn) { adminDelete(delBtn.getAttribute("data-delete")); }
+      });
+    }
+
+    var sadBtn = $("sadMoodBtn");
+    var happyBtn = $("happyMoodBtn");
+    if (sadBtn) sadBtn.addEventListener("click", function () { voteMood("sad"); });
+    if (happyBtn) happyBtn.addEventListener("click", function () { voteMood("happy"); });
+
+    var candle = $("candleToggle");
+    if (candle) {
+      candle.addEventListener("click", function () {
+        var off = document.body.classList.toggle("candle-off");
+        var status = $("candleStatus");
+        if (status) {
+          status.textContent = off
+            ? "مۆمەکە کوژایەوە — کلیک بکە بۆ داگیرساندنەوە"
+            : "دەست لە مۆمەکە بدە بۆ کوژاندنەوە یان هەڵکردنی";
+        }
+      });
+    }
+
+    var clockBtn = $("clockBtn");
+    if (clockBtn) clockBtn.addEventListener("click", function () { touchPresence(true); });
+
+    var headphone = $("headphoneBtn");
+    if (headphone) headphone.addEventListener("click", toggleMusic);
+
+    var footerAdmin = $("footerAdminBtn");
+    if (footerAdmin) footerAdmin.addEventListener("click", requireAdmin);
+
+    var authOk = $("authOk");
+    if (authOk) authOk.addEventListener("click", submitAuth);
+    var authCancel = $("authCancel");
+    if (authCancel) authCancel.addEventListener("click", closeAuth);
+    var authInput = $("authInput");
+    if (authInput) {
+      authInput.addEventListener("keydown", function (e) {
+        if (e.key === "Enter") { e.preventDefault(); submitAuth(); }
+        if (e.key === "Escape") { e.preventDefault(); closeAuth(); }
+      });
+    }
+    var authModal = $("authModal");
+    if (authModal) {
+      authModal.addEventListener("click", function (e) {
+        if (e.target === authModal) closeAuth();
+      });
+    }
+
+    var closeAdmin = $("closeAdminBtn");
+    if (closeAdmin) {
+      closeAdmin.addEventListener("click", function () {
+        var panel = $("adminPanel");
+        if (panel) panel.classList.remove("active");
+      });
+    }
+
+    var tabPoems = $("tabPoems");
+    var tabBlocked = $("tabBlocked");
+    if (tabPoems && tabBlocked) {
+      tabPoems.addEventListener("click", function () {
+        tabPoems.classList.add("active");
+        tabBlocked.classList.remove("active");
+        $("adminPoemsList").style.display = "";
+        $("adminBlockedList").style.display = "none";
+      });
+      tabBlocked.addEventListener("click", function () {
+        tabBlocked.classList.add("active");
+        tabPoems.classList.remove("active");
+        $("adminPoemsList").style.display = "none";
+        $("adminBlockedList").style.display = "";
+        renderAdminBlocked();
+      });
+    }
+
+    var adminPoems = $("adminPoemsList");
+    if (adminPoems) {
+      adminPoems.addEventListener("click", function (e) {
+        var t = e.target;
+        var info = t.closest("[data-info]");
+        if (info) {
+          var box = adminPoems.querySelector('[data-text="' + info.getAttribute("data-info") + '"]');
+          if (box) box.classList.toggle("open");
+          return;
+        }
+        var pinBtn = t.closest("[data-pin]");
+        if (pinBtn) {
+          adminPin(pinBtn.getAttribute("data-pin"), pinBtn.getAttribute("data-pinned") !== "1");
+          return;
+        }
+        var delBtn = t.closest("[data-admin-delete]");
+        if (delBtn) { adminDelete(delBtn.getAttribute("data-admin-delete")); return; }
+        var blockBtn = t.closest("[data-block]");
+        if (blockBtn) { adminBlock(blockBtn.getAttribute("data-block")); }
+      });
+    }
+
+    var blockedList = $("adminBlockedList");
+    if (blockedList) {
+      blockedList.addEventListener("click", function (e) {
+        var btn = e.target.closest("[data-unblock]");
+        if (btn) adminUnblock(btn.getAttribute("data-unblock"));
+      });
+    }
+
+    var notifBtn = $("notifBtn");
+    if (notifBtn) {
+      notifBtn.addEventListener("click", function (e) {
+        e.stopPropagation();
+        unlockNotifSound();
+        var panel = $("notifPanel");
+        if (panel && panel.classList.contains("show")) panel.classList.remove("show");
+        else openNotifPanel();
+      });
+    }
+    var notifClose = $("notifClose");
+    if (notifClose) {
+      notifClose.addEventListener("click", function () {
+        var panel = $("notifPanel");
+        if (panel) panel.classList.remove("show");
+      });
+    }
+    var notifClear = $("notifClear");
+    if (notifClear) {
+      notifClear.addEventListener("click", function () {
+        notifLog = [];
+        writeStoreJSON(NOTIF_LOG_KEY, []);
+        renderNotifPanel();
+      });
+    }
+    document.addEventListener("click", unlockNotifSound);
+    document.addEventListener("click", function (e) {
+      var panel = $("notifPanel");
+      var btn = $("notifBtn");
+      if (!panel || !panel.classList.contains("show")) return;
+      if (panel.contains(e.target) || (btn && btn.contains(e.target))) return;
+      panel.classList.remove("show");
+    });
+
+    window.addEventListener("resize", function () {});
+  }
+
+  /* ---------- notifications (بەڕێوەبەر تەنها) ---------- */
+  var notifLog = [];
+  var notifUnread = 0;
+  var notifAudioCtx = null;
+
+  function readStoreJSON(key, fallback) {
+    try {
+      var raw = storeGet(key);
+      return raw ? JSON.parse(raw) : fallback;
+    } catch (e) { return fallback; }
+  }
+  function writeStoreJSON(key, value) {
+    try { storeSet(key, JSON.stringify(value)); } catch (e) {}
+  }
+
+  function newestPoemTime() {
+    var max = "";
+    poems.forEach(function (p) {
+      var c = String(p.created_at || "");
+      if (c > max) max = c;
+    });
+    return max;
+  }
+
+  function notificationSnapshot() {
+    var likes = {};
+    poems.forEach(function (p) { likes[p.id] = likeCount(p); });
+    return { likes: likes, newest: newestPoemTime() };
+  }
+
+  function formatNotifTime(value) {
+    var d = value instanceof Date ? value : new Date(value);
+    if (isNaN(d.getTime())) return "";
+    try {
+      return d.toLocaleTimeString("ku", { hour: "2-digit", minute: "2-digit", hour12: false });
+    } catch (e) {
+      return String(d.getHours()).padStart(2, "0") + ":" + String(d.getMinutes()).padStart(2, "0");
+    }
+  }
+
+  function updateNotifBadge() {
+    var badge = $("notifBadge");
+    if (!badge) return;
+    badge.textContent = formatNumber(notifUnread);
+    if (notifUnread > 0) badge.classList.add("show");
+    else badge.classList.remove("show");
+  }
+
+  function renderNotifPanel() {
+    var list = $("notifList");
+    if (!list) return;
+    if (!notifLog.length) {
+      list.innerHTML = '<div class="empty">هێشتا هیچ ئاگادارییەک نییە.</div>';
+      return;
+    }
+    list.innerHTML = notifLog.map(function (n) {
+      return '<div class="notif-item"><span class="n-ico">' + escapeHtml(n.icon) + '</span>' +
+        '<div>' + escapeHtml(n.text) + '<span class="n-time">' + escapeHtml(n.time || "") + '</span></div></div>';
+    }).join("");
+  }
+
+  function setNotifVisible(visible) {
+    var btn = $("notifBtn");
+    if (!btn) return;
+    if (visible) btn.classList.add("active");
+    else btn.classList.remove("active");
+    if (!visible) {
+      var panel = $("notifPanel");
+      if (panel) panel.classList.remove("show");
+      notifUnread = 0;
+      updateNotifBadge();
+    }
+  }
+
+  function pushNotification(icon, text) {
+    if (!adminCode) return;
+    notifLog = [{ icon: icon, text: text, time: formatNotifTime(new Date()) }].concat(notifLog).slice(0, 40);
+    writeStoreJSON(NOTIF_LOG_KEY, notifLog);
+    renderNotifPanel();
+  }
+
+  function playNotifSound() {
+    try {
+      if (document.hidden) return;
+      var Ctx = window.AudioContext || window.webkitAudioContext;
+      if (!Ctx) return;
+      if (!notifAudioCtx) notifAudioCtx = new Ctx();
+      if (notifAudioCtx.state !== "running") return;
+      var t0 = notifAudioCtx.currentTime;
+      [880, 1175].forEach(function (freq, i) {
+        var osc = notifAudioCtx.createOscillator();
+        var gain = notifAudioCtx.createGain();
+        var at = t0 + i * 0.13;
+        osc.type = "sine";
+        osc.frequency.value = freq;
+        gain.gain.setValueAtTime(0.0001, at);
+        gain.gain.exponentialRampToValueAtTime(0.14, at + 0.02);
+        gain.gain.exponentialRampToValueAtTime(0.0001, at + 0.16);
+        osc.connect(gain);
+        gain.connect(notifAudioCtx.destination);
+        osc.start(at);
+        osc.stop(at + 0.18);
+      });
+    } catch (e) {}
+  }
+
+  function unlockNotifSound() {
+    try {
+      var Ctx = window.AudioContext || window.webkitAudioContext;
+      if (!Ctx) return;
+      if (!notifAudioCtx) notifAudioCtx = new Ctx();
+      if (notifAudioCtx.state === "suspended") notifAudioCtx.resume();
+    } catch (e) {}
+  }
+
+  function resetNotificationState() {
+    notifLog = [];
+    notifUnread = 0;
+    writeStoreJSON(NOTIF_LOG_KEY, []);
+    writeStoreJSON(NOTIF_SEEN_KEY, {});
+    renderNotifPanel();
+    updateNotifBadge();
+    setNotifVisible(true);
+  }
+
+  function initNotificationState() {
+    if (!adminCode) { setNotifVisible(false); return; }
+    notifLog = readStoreJSON(NOTIF_LOG_KEY, []);
+    notifUnread = 0;
+    renderNotifPanel();
+    updateNotifBadge();
+    setNotifVisible(true);
+  }
+
+  function refreshNotifications() {
+    if (!adminCode) return;
+    var snap = notificationSnapshot();
+    var prev = readStoreJSON(NOTIF_SEEN_KEY, null);
+    if (!prev || !prev.likes || typeof prev.newest !== "string") {
+      writeStoreJSON(NOTIF_SEEN_KEY, snap);
+      return;
+    }
+    var items = [];
+    poems.forEach(function (p) {
+      if (p.id === ANCHOR_ID) return;
+      var created = String(p.created_at || "");
+      if (created && created > prev.newest) {
+        items.push({ icon: "📝", text: "شیعرێکی نوێ: «" + p.title + "» — " + p.poet, time: formatNotifTime(created) });
+      }
+    });
+    poems.forEach(function (p) {
+      if (p.id === ANCHOR_ID) return;
+      var now = likeCount(p);
+      var was = typeof prev.likes[p.id] === "number" ? prev.likes[p.id] : now;
+      if (now > was) {
+        var diff = now - was;
+        items.push({
+          icon: "❤️",
+          text: (diff > 1 ? formatNumber(diff) + " لایکی نوێ بۆ «" + p.title + "»" : "لایکێکی نوێ بۆ «" + p.title + "»"),
+          time: formatNotifTime(new Date())
+        });
+      }
+    });
+    writeStoreJSON(NOTIF_SEEN_KEY, snap);
+    if (!items.length) return;
+    notifLog = items.concat(notifLog).slice(0, 40);
+    writeStoreJSON(NOTIF_LOG_KEY, notifLog);
+    notifUnread += items.length;
+    renderNotifPanel();
+    updateNotifBadge();
+    playNotifSound();
+  }
+
+  function openNotifPanel() {
+    var panel = $("notifPanel");
+    if (!panel) return;
+    renderNotifPanel();
+    panel.classList.add("show");
+    notifUnread = 0;
+    updateNotifBadge();
+  }
+
+  /* ---------- boot ---------- */
+  function populatePresets() {
+    var preset = $("presetPoemSelect");
+    if (!preset) return;
+    preset.innerHTML = '<option value="">شیعرێکی ئامادە هەڵبژێرە...</option>';
+    PRESETS.forEach(function (item, index) {
+      var opt = document.createElement("option");
+      opt.value = String(index);
+      opt.textContent = item.label;
+      preset.appendChild(opt);
+    });
+  }
+
+  function loadPresets() {
+    return fetch("./presets.json", { cache: "no-store" })
+      .then(function (res) {
+        if (!res.ok) throw new Error("presets " + res.status);
+        return res.json();
+      })
+      .then(function (list) {
+        if (Array.isArray(list) && list.length) PRESETS = list;
+      })
+      .catch(function () {})
+      .then(populatePresets);
+  }
+
+  function boot() {
+    bind();
+    loadPresets();
+    tickClock();
+    setInterval(tickClock, 1000);
+
+    initNotificationState();
+    loadWelcome();
+    loadBlockedState();
+    loadMood();
+    touchPresence(false);
+
+    loadPoems().catch(function (err) {
+      systemError("نەتوانرا شیعرەکان بار بکرێن: " + friendlyError(err));
+      var list = $("poemsList");
+      if (list) list.innerHTML = '<div class="empty">نەتوانرا شیعرەکان بار بکرێن.</div>';
+    });
+
+    setInterval(function () {
+      touchPresence(false);
+      if (adminCode) loadPoems().catch(function () {});
+    }, 20000);
+
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", boot);
+  } else {
+    boot();
+  }
+})();
+</script>
+</body>
+</html>
